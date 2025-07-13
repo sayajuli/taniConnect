@@ -1,0 +1,37 @@
+{
+  "name": "@tani-connect/backend",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@tani-connect/backend:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@tani-connect/backend:build:development"
+          },
+          "production": {
+            "buildTarget": "@tani-connect/backend:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19"
+  }
+}
